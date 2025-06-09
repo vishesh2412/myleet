@@ -2,10 +2,6 @@ class Solution(object):
     def totalNQueens(self, n):
         def isSafe(board,row,col,n):
             for i in range(n):
-                if board[row][i]=='Q':
-                    return False
-
-            for i in range(n):
                 if board[i][col]=='Q':
                     return False
                 
