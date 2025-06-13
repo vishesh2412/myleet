@@ -1,25 +1,26 @@
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
 class Solution:
-    def mergeKLists(self, lists):
-        dummy = ListNode(0)
-        current = dummy
-
+    def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
+        fake=ListNode(0)
+        temp=fake
+        
         while True:
-            min_index = -1
-            min_val = float('inf')
-
-            # Step 1: Find the list with the smallest head
+            index=-1
+            val=float('inf')
             for i in range(len(lists)):
-                if lists[i] and lists[i].val < min_val:
-                    min_val = lists[i].val
-                    min_index = i
-
-            # Step 2: If all lists are exhausted
-            if min_index == -1:
+                if lists[i] and lists[i].val<val:
+                    val=lists[i].val
+                    index=i
+                
+            if index==-1:
                 break
 
-            # Step 3: Append smallest node and move its pointer
-            current.next = lists[min_index]
-            current = current.next
-            lists[min_index] = lists[min_index].next
+            temp.next=lists[index]
+            temp=temp.next
+            lists[index]=lists[index].next
 
-        return dummy.next
+        return fake.next
