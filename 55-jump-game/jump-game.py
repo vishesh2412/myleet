@@ -1,8 +1,8 @@
-class Solution:
-    def canJump(self, nums: List[int]) -> bool:
-        reach=0
+class Solution(object):
+    def canJump(self, nums):
+        canreach=nums[0]
         for i in range(len(nums)):
-            if i>reach:
+            if i>canreach:
                 return False
-            reach=max(reach,i+nums[i])
+            canreach=max(canreach,i+nums[i])
         return True
