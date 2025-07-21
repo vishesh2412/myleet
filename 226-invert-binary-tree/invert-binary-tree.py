@@ -10,9 +10,7 @@ class Solution(object):
             if not root:
                 return root
 
-            temp=root.left
-            root.left=root.right
-            root.right=temp
+            root.right,root.left=root.left,root.right
 
             invert(root.left)
             invert(root.right)
