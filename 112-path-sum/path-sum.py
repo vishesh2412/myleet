@@ -5,8 +5,6 @@ class Solution(object):
 
         #when reaching leaf node
         if not root.left and not root.right:
-            if root.val==targetSum:
-                return True
-            return False
+            return root.val==targetSum
 
         return self.hasPathSum(root.left,targetSum-root.val) or self.hasPathSum(root.right,targetSum-root.val)
