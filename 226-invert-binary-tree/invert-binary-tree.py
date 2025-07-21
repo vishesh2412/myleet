@@ -6,14 +6,12 @@
 #         self.right = right
 class Solution(object):
     def invertTree(self, root):
-        def invert(root):
-            if not root:
-                return root
-
-            root.right,root.left=root.left,root.right
-
-            invert(root.left)
-            invert(root.right)
-
+        if not root:
             return root
-        return invert(root)      
+
+        root.right,root.left=root.left,root.right
+
+        self.invertTree(root.left)
+        self.invertTree(root.right)
+
+        return root      
