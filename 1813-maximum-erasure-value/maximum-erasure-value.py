@@ -1,13 +1,15 @@
 class Solution(object):
     def maximumUniqueSubarray(self, nums):
-        window=[]
+        left=0
         total=0
-        for i in nums:
-            if i in window:
-                total=max(total,sum(window))
-                j=window.index(i)
-                window=window[j+1:]
-                window.append(i)
-            else:
-                window.append(i)
-        return max(total,sum(window))
+        usum=0
+        unique=set()
+        for i in range(len(nums)):
+            while nums[i] in unique:
+                unique.remove(nums[left])
+                usum-=nums[left]
+                left+=1
+            unique.add(nums[i])
+            usum+=nums[i]
+            total=max(total,usum)
+        return total
