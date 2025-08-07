@@ -12,7 +12,7 @@ class Solution(object):
         if not head:
             return None
             
-        nodes={}
+        nodes={None:None}
         temp=head
 
         while temp:
@@ -21,10 +21,8 @@ class Solution(object):
         
         temp=head
         while temp:
-            if temp.next:
-                nodes[temp].next=nodes[temp.next]
-            if temp.random:
-                nodes[temp].random=nodes[temp.random]
+            nodes[temp].next=nodes[temp.next]
+            nodes[temp].random=nodes[temp.random]
             temp=temp.next
         
         return nodes[head]
