@@ -6,9 +6,9 @@
 #         self.right = right
 class Solution:
     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
-        if not root:
-            return []
         answer=[]
+        if not root:
+            return answer
         queue=[root]
         while(queue):
             answer.append([i.val for i in queue])
