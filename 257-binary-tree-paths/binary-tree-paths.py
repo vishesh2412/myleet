@@ -12,11 +12,11 @@ class Solution:
 
         def traverse(answer,node):
             if not node:
-                return ''
+                return
             if not node.left and not node.right:
                 output.append(answer+str(node.val))
-            l=traverse(answer+str(node.val)+'->',node.left)
-            r=traverse(answer+str(node.val)+'->',node.right)
+            traverse(answer+str(node.val)+'->',node.left)
+            traverse(answer+str(node.val)+'->',node.right)
 
         traverse('',root)       
         return output
