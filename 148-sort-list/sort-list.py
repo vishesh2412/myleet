@@ -15,7 +15,7 @@ class Solution(object):
             values.append(temp.val)
             temp=temp.next
         
-        values=sorted(values)
+        values.sort()
 
         head2=ListNode(0)
         temp=head2
