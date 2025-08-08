@@ -5,15 +5,10 @@
 #         self.next = next
 class Solution(object):
     def sortList(self, head):
-        if not head or not head.next:
-            return head
-
         values=[]
-
-        temp=head
-        while(temp):
-            values.append(temp.val)
-            temp=temp.next
+        while(head):
+            values.append(head.val)
+            head=head.next
         
         values.sort()
 
