@@ -21,8 +21,7 @@ class Solution(object):
         temp=head2
 
         for i in values:
-            new=ListNode(i)
-            temp.next=new
+            temp.next=ListNode(i)
             temp=temp.next
         
         return head2.next
