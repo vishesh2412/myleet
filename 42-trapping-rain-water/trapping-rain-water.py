@@ -1,24 +1,21 @@
 class Solution:
     def trap(self, height: List[int]) -> int:
-        n=len(height)
-        if n<3:
-            return 0
-        left_max=[0]*n
-        right_max=[0]*n
-
-        left_max[0]=height[0]
-        for i in range(1,n):
-            left_max[i]=max(left_max[i-1],height[i])
-
-        right_max[n-1]=height[n-1]
-        for i in range(n-2,-1,-1):
-            right_max[i]=max(right_max[i+1],height[i])
-
-        i=1
         area=0
-
-        while(i+1<n):
-            area+=max(0,min(left_max[i],right_max[i])-height[i])
-            i+=1
+        l,r=0,len(height)-1
+        left_max,right_max=0,0
         
+        while(l<r):
+            if height[l]<height[r]:
+                if height[l]>=left_max:
+                    left_max=height[l]
+                else:
+                    area+=left_max-height[l]
+                l+=1
+            
+            else:
+                if height[r]>=right_max:
+                    right_max=height[r]
+                else:
+                    area+=right_max-height[r]
+                r-=1
         return area
