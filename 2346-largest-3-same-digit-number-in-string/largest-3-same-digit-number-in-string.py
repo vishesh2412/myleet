@@ -1,10 +1,7 @@
 class Solution:
     def largestGoodInteger(self, num: str) -> str:
-        i=0
-        ans=""
-        while i<=9:
-            check=str(i)*3
-            if check in num:
-                ans=check
-            i+=1
+        ans = ""
+        for i in range(len(num) - 2):
+            if num[i] == num[i+1] == num[i+2]:  # 3 same digits
+                ans = max(ans, num[i:i+3])     # pick lexicographically largest
         return ans
