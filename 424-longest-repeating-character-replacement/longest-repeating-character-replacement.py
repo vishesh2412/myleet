@@ -9,7 +9,7 @@ class Solution:
             ch=s[j]
             count[ch]=count.get(ch,0)+1
             max_freq=max(max_freq,count[ch])
-            while(j-i+1-max_freq)>k:
+            if(j-i+1-max_freq)>k:
                 count[s[i]]-=1
                 i+=1
             ans=max(ans,j-i+1)
