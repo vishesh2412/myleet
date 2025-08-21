@@ -1,4 +1,8 @@
-class Solution(object):
-    def hammingWeight(self, n):
-        n=str(bin(n))
-        return n.count('1')
+class Solution:
+    def hammingWeight(self, n: int) -> int:
+        count=0
+        while(n>0):
+            if n&1:
+                count+=1
+            n>>=1
+        return count
