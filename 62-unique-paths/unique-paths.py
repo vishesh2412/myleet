@@ -1,10 +1,11 @@
 from functools import lru_cache
+
 class Solution:
     def uniquePaths(self, m: int, n: int) -> int:
         @lru_cache(None)
-        def dp(m,n):
-            if m==1 or n==1:
+        def dp(i, j):
+            if i == m or j == n:  # reached last row or column
                 return 1
-            else:
-                return dp(m-1,n)+dp(m,n-1)
-        return dp(m,n)
+            return dp(i+1, j) + dp(i, j+1)
+        
+        return dp(1, 1)
