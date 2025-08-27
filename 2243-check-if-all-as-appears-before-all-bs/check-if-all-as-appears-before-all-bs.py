@@ -1,3 +1,4 @@
+import re
 class Solution:
     def checkString(self, s: str) -> bool:
-        return 'ba' not in s
+        return bool(re.fullmatch(r'a*b*',s))
