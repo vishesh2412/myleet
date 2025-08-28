@@ -1,6 +1,5 @@
 class Solution:
     def scoreOfParentheses(self, s: str) -> int:
-        score=0
         stack=[0]
         for i in s:
             if i=='(':
