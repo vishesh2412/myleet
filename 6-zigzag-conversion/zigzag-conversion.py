@@ -1,18 +1,14 @@
 class Solution(object):
     def convert(self, s, numRows):
+        if numRows==1 or numRows>=len(s):
+            return s
+        row,step=0,1
         answer=['']*numRows
-        i=0
-        j=0
-        n=len(s)
-        while(i<n):
-            if j<numRows:
-                answer[j]+=s[i]
-                i+=1
-                j+=1
-            else:
-                for k in range(numRows-2):
-                    if i<n:
-                        answer[numRows-k-2]+=s[i]
-                        i+=1
-                j=0
+        for char in s:
+            answer[row]+=char
+            if row==0:
+                step=1
+            elif row==numRows-1:
+                step=-1
+            row+=step
         return ''.join(answer)
