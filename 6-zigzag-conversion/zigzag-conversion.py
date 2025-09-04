@@ -1,15 +1,17 @@
 class Solution(object):
     def convert(self, s, numRows):
-        if numRows==1:
-            return s
         answer=['']*numRows
-        ind=0
-        direction=1
-        for i in s:
-            answer[ind]+=i
-            if ind==0:
-                direction=1
-            elif ind==numRows-1:
-                direction=-1
-            ind+=direction
+        i=0
+        j=0
+        while(i<len(s)):
+            if j<numRows:
+                answer[j]+=s[i]
+                i+=1
+                j+=1
+            else:
+                for k in range(numRows-2):
+                    if i<len(s):
+                        answer[numRows-k-2]+=s[i]
+                        i+=1
+                j=0
         return ''.join(answer)
