@@ -11,7 +11,7 @@ class Solution(object):
                 j+=1
             else:
                 for k in range(numRows-2):
-                    if i<len(s):
+                    if i<n:
                         answer[numRows-k-2]+=s[i]
                         i+=1
                 j=0
