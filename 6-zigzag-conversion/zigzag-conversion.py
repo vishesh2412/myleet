@@ -3,7 +3,8 @@ class Solution(object):
         answer=['']*numRows
         i=0
         j=0
-        while(i<len(s)):
+        n=len(s)
+        while(i<n):
             if j<numRows:
                 answer[j]+=s[i]
                 i+=1
