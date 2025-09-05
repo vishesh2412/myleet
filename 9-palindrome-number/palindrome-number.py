@@ -1,6 +1,9 @@
-class Solution(object):
-    def isPalindrome(self, x):
-        y=str(x)
-        if y[::-1]==y:
-            return True
-        return False
+class Solution:
+    def isPalindrome(self, x: int) -> bool:
+        if x<0:
+            return False
+        original,rev=x,0
+        while(x>0):
+            rev=rev*10+(x%10)
+            x=x//10
+        return original==rev
