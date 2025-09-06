@@ -13,16 +13,12 @@ class Solution:
                     continue
                 
                 queens[row]=i
-                d1[row-i]=True
-                d2[row+i]=True
-                col[i]=True
+                d1[row-i]=d2[row+i]=col[i]=True
 
                 backtrack(row+1)
 
                 queens[row]=-1
-                d1[row-i]=False
-                d2[row+i]=False
-                col[i]=False
+                d1[row-i]=d2[row+i]=col[i]=False
 
         result=[]
         queens=[-1]*n
