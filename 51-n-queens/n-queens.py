@@ -1,31 +1,34 @@
 class Solution:
     def solveNQueens(self, n: int) -> List[List[str]]:
-        def backtrack(board,row):
+        def backtrack(row):
             if row==n:
-                result.append([''.join(_) for _ in board])
+                board=[]
+                for q in queens:
+                    board.append('.'*q+'Q'+'.'*(n-q-1))
+                result.append(board)
                 return
             
             for i in range(n):
-                if i in col or row-i in d1 or row+i in d2:
+                if col[i] or d1[row-i] or d2[row+i]:
                     continue
                 
-                col.add(i)
-                d1.add(row-i)
-                d2.add(row+i)
-                board[row][i]='Q'
+                queens[row]=i
+                d1[row-i]=True
+                d2[row+i]=True
+                col[i]=True
 
-                backtrack(board,row+1)
+                backtrack(row+1)
 
-                col.remove(i)
-                d1.remove(row-i)
-                d2.remove(row+i)
-                board[row][i]='.'
+                queens[row]=-1
+                d1[row-i]=False
+                d2[row+i]=False
+                col[i]=False
 
         result=[]
-        board=[['.']*n for _ in range(n)]
-        d1=set()
-        d2=set()
-        col=set()
+        queens=[-1]*n
+        d1=[False]*(2*n)
+        d2=[False]*(2*n)
+        col=[False]*n
 
-        backtrack(board,0)
+        backtrack(0)
         return result
