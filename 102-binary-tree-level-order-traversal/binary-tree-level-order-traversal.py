@@ -9,17 +9,17 @@ class Solution:
         a=[]
         if not root:
             return a
-        def traverse(node,l):
+        def traverse(node,level):
             if not node:
                 return 
             
-            if l==len(a):
+            if level==len(a):
                 a.append([])
 
-            traverse(node.left,l+1)
-            traverse(node.right,l+1)
+            traverse(node.left,level+1)
+            traverse(node.right,level+1)
 
-            a[l].append(node.val)            
+            a[level].append(node.val)            
             
         traverse(root,0)
         return a
