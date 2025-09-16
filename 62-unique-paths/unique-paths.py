@@ -1,11 +1,4 @@
-from functools import lru_cache
-
+import math
 class Solution:
     def uniquePaths(self, m: int, n: int) -> int:
-        @lru_cache(None)
-        def dp(i, j):
-            if i == m or j == n:  # reached last row or column
-                return 1
-            return dp(i+1, j) + dp(i, j+1)
-        
-        return dp(1, 1)
+        return (math.factorial(m+n-2)//(math.factorial(m-1)*math.factorial(n-1)))
