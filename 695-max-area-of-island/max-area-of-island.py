@@ -1,9 +1,7 @@
 class Solution:
     def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
         def traverse(i,j):
-            if i<0 or j<0 or i>=rows or j>=cols:
-                return 0
-            if grid[i][j]==0:
+            if i<0 or j<0 or i>=rows or j>=cols or grid[i][j]==0:
                 return 0
             grid[i][j]=0
 
