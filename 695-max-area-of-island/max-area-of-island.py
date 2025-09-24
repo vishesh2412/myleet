@@ -10,11 +10,11 @@ class Solution:
 
         n=len(grid)
         m=len(grid[0])
-        a=0
+        area=0
 
         for i in range(n):
             for j in range(m):
                 if grid[i][j]==1:
-                    a=max(a,traverse(i,j))
+                    area=max(area,traverse(i,j))
         
-        return a
+        return area
