@@ -1,10 +1,9 @@
-class Solution(object):
-    def plusOne(self, digits):
-        a=''
+class Solution:
+    def plusOne(self, digits: List[int]) -> List[int]:
+        num=0
+        x=0
         for i in digits:
-            a+=str(i)
-        b=str(int(a)+1)
-        ans=[]
-        for i in b:
-            ans.append(int(i))
-        return ans        
+            num=num*10+i
+        num+=1
+    
+        return [int(x) for x in str(num)]
