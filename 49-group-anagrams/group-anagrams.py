@@ -1,9 +1,10 @@
 class Solution(object):
     def groupAnagrams(self, strs):
-        new=[]
-        dict1=defaultdict(list)
+        check={}
         for i in strs:
-            form=''.join(sorted(i))
-            dict1[form].append(i)
-        output = list(dict1.values())
-        return output
+            stri=''.join(sorted(i))
+            if stri in check:
+                check[stri].append(i)
+            else:
+                check[stri]=[i]
+        return list(check.values())
