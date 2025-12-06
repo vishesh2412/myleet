@@ -2,19 +2,19 @@ class Solution:
     def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
         if head==None:
             return head
-        temp=head
-        i=0
-        while(temp):
-            i+=1
-            temp=temp.next
-        target=i-n
-        if target==0:
-            return head.next
-        i=0
-        temp=head
-        while(i<target):
-            prev=temp
-            temp=temp.next
-            i+=1
-        prev.next=temp.next
-        return head
+        dummy=ListNode(0,head)
+
+        t1=dummy
+        t2=dummy
+
+        for i in range(n+1):
+            t1=t1.next
+
+        while t1:
+            t1=t1.next
+            t2=t2.next
+
+        t2.next=t2.next.next
+
+        # return head
+        return dummy.next
