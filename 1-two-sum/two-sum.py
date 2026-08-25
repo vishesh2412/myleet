@@ -1,6 +1,11 @@
 class Solution(object):
     def twoSum(self, nums, target):
-        for i in range(len(nums)-1):
-            for j in range(i+1,len(nums)):
-                if nums[i]+nums[j]==target:
-                    return [i,j]
+        dict1={}
+
+        for index,value in enumerate(nums):
+            find_number=target-value
+
+            if find_number in dict1:
+                return [index,dict1[find_number]]
+
+            dict1[value]=index
