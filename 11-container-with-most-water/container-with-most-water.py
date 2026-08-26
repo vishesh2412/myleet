@@ -1,17 +1,24 @@
 class Solution(object):
     def maxArea(self, height):
-        left, right = 0, len(height) - 1
-        max_area=0
-        
-        while left < right:
-            width = right - left
-            min_height = min(height[left], height[right])
-            area = width * min_height
-            max_area = max(max_area, area)
-            
-            if height[left] < height[right]:
-                left += 1
+        #logic
+        # i=left
+        # j=right
+        # i increase
+        # j decrese
+        # new_area> previous_area:
+        #     previous_area=new_area
+
+        i=0
+        j=len(height)-1
+
+        final_area=min(height[i],height[j])*(j-i)
+
+        while(i<j):
+            new_area=min(height[i],height[j])*(j-i)
+            if new_area>final_area:
+                final_area=new_area
+            if height[i]<height[j]:
+                i+=1
             else:
-                right -= 1
-        
-        return max_area
+                j-=1
+        return final_area
