@@ -1,7 +1,10 @@
 class Solution(object):
     def groupAnagrams(self, strs):
-        check = {}
+        output={}
         for i in strs:
-            key = ''.join(sorted(i))
-            check.setdefault(key, []).append(i)
-        return list(check.values())
+            check=tuple(sorted(i))
+            if check in output:
+                output[check].append(i)
+            else:
+                output[check]=[i]
+        return output.values()
